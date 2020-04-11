@@ -20,7 +20,7 @@ class TodoApp extends React.Component {
     render() {
         return (
             <View styles={styles.container}>
-                <Text style={styles.date}>{this.currentDate()}</Text>
+                <Text style={styles.date}>{this.currentDate}</Text>
                 <AddTodo />
 
                 <View>
