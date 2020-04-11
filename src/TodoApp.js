@@ -3,45 +3,52 @@ import { StyleSheet, View, Text } from 'react-native';
 import moment from 'moment';
 
 import AddTodo from './containers/AddTodo';
+// import TodoList from './components/TodoList';
 import CurrentTodos from './containers/CurrentTodos';
 
-// class TodoApp extends React.Component {
+class TodoApp extends React.Component {
 
-//     state = {
-//         todos: [],
-//         visibilityFilter: 'SHOW_ALL_TODOS'
-//     }
+    state = {
+        todos: [],
+        visibilityFilter: 'SHOW_ALL_TODOS'
+    }
 
-//     render() {
-//         return (
-//             <View styles={styles.container}>
-//                 <AddTodo />
+    currentDate() {
+        console.log(moment().format(' DD, MMM'));
+    }
 
-//                 <View>
-//                     <CurrentTodos />
-//                 </View>
-//             </View>
-//         )
-//     }
-// }
+    render() {
+        return (
+            <View styles={styles.container}>
+                <Text style={styles.date}>{this.currentDate()}</Text>
+                <AddTodo />
 
-// export default TodoApp;
-
-export default function TodoApp() {
-
-    const currentDate = moment().format(' DD, MMM');
-    
-    return (
-        <View styles={styles.container}>
-            <Text style={styles.date}>{currentDate}</Text>
-            <AddTodo />
-
-            <View>
-                <CurrentTodos />
+                <View>
+                    <CurrentTodos />
+                </View>
             </View>
-        </View>
-    )
+        )
+    }
 }
+
+export default TodoApp;
+
+// export default function TodoApp() {
+
+//     const currentDate = moment().format(' DD, MMM');
+    
+//     return (
+//         <View styles={styles.container}>
+//             <Text style={styles.date}>{currentDate}</Text>
+//             <AddTodo />
+
+//             <View>
+//                 {/* <TodoList /> */}
+//                 <CurrentTodos />
+//             </View>
+//         </View>
+//     )
+// }
 
 const styles = StyleSheet.create({
     screen: {
